@@ -5,8 +5,8 @@
  */
 angular.module('clientApp')
 
-.controller('CharBuilderCtrl', ['$scope', 'ABILITIES', 
-  function($scope, ABILITIES) {
+.controller('CharBuilderCtrl', ['$scope', 'ABILITIES', 'ABScores', 'diceRoller',
+  function($scope, ABILITIES, ABScores, diceRoller) {
   
     
   var initializeStats = function() {
@@ -18,7 +18,9 @@ angular.module('clientApp')
   $scope.stats = {};
   initializeStats();
   
-  
+  $scope.rollStats = function() {
+    
+  };
 
   
   
