@@ -1,0 +1,24 @@
+<accordion close-others="oneAtATime">
+  <accordion-group heading="Ability Scores">
+    <div class="form-horizontal">
+      <div ng-repeat="(key, value) in stats">
+        <div class="input-group">  
+          <span class="input-group-addon">{{key}}</span>
+          <input type="number" ng-model="value" class="form-control pull-right">
+        </div>
+      </div>
+    </div>
+  </accordion-group>
+  <accordion-group heading="Race" >
+    Race Stuff
+  </accordion-group>
+  <accordion-group heading="Background">
+    Background directive.
+  </accordion-group>
+  <accordion-group heading="Class">
+      Class stuff.
+  </accordion-group>
+  <accordion-group heading="Equipment">
+      Some equipement
+  </accordion-group>  
+</accordion>
