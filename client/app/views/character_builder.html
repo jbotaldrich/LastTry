@@ -1,24 +1,32 @@
-<accordion close-others="oneAtATime">
-  <accordion-group heading="Ability Scores">
-    <div class="form-horizontal">
-      <div ng-repeat="(key, value) in stats">
-        <div class="input-group">  
-          <span class="input-group-addon">{{key}}</span>
-          <input type="number" ng-model="value" class="form-control pull-right">
-        </div>
-      </div>
+
+<div class="form-horizontal">
+  <div ng-repeat="stat in stats">
+    <div class="input-group">  
+      <span class="input-group-addon">{{stat.name}}</span>
+      <input type="number" ng-model="value" class="form-control pull-right">
     </div>
-  </accordion-group>
-  <accordion-group heading="Race" >
-    Race Stuff
-  </accordion-group>
-  <accordion-group heading="Background">
-    Background directive.
-  </accordion-group>
-  <accordion-group heading="Class">
-      Class stuff.
-  </accordion-group>
-  <accordion-group heading="Equipment">
-      Some equipement
-  </accordion-group>  
-</accordion>
+  </div>
+</div>
+
+<div class="fluid-container">
+<div ng-repeat="roll in rolls">
+  <div class="col-med-4 col-lg-4">
+    <input type="number" ng-model="roll.value">
+
+    <div ng-repeat="stat in stats">
+      <input type="radio" name="{{stat.name}}"/>{{stat.name}}
+    </div>
+
+  </div>
+</div>
+  
+  <button class="btn btn-primary" ng-click="selectedTypeOfRoll.rollfunc()">Roll Dice!</button>
+  <div class="btn-group">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    {{selectedTypeOfRoll.title}} <i class="fa fa-caret-down"></i>
+  </button> 
+      <ul class="dropdown-menu">
+        <li ng-repeat="troll in typesOfRolls"><a ng-click="setTypeOfRoll($index)">{{troll.title}}</a></li>
+  </ul>
+</div>
+</div>

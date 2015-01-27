@@ -3,7 +3,7 @@ angular.module('DiceRoller', []).
 factory('diceRoller', [function() {
 
     var rollDie = function(dieSize) {
-      return Math.floor(Math.Random() * (dieSize + 1));
+      return Math.floor(Math.random() * (dieSize + 1));
     };
 
     var rollDice = function(dieSize, numDice) {
@@ -27,11 +27,15 @@ factory('diceRoller', [function() {
       }
       return _.sortBy(diceArray, function(num) {
         return -num;
-      }).slice(0, xDice + 1);
+      }).slice(0, xDice);
 
 
     };
-
+    return {
+      rollDice: rollDice,
+      sumOfDice: sumOfDice,
+      takeXHighest: takeXHighest
+    };
 
 
   }]);

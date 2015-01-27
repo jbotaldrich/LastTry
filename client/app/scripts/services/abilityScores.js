@@ -2,7 +2,7 @@ angular.module('AbilityScore', [])
 
 .constant('ABILITIES', Object.freeze(['STRENGTH', 'DEXTERITY', 
                         'CONSTITUTION', 'WISDOM', 'INTELLIGENCE',
-                        'CHARISM']))
+                        'CHARISMA']))
                      
 .constant('ABILITY_TYPE', Object.freeze(['MOD', 'BASE']))
 
