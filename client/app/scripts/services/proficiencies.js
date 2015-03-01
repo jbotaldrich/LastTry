@@ -7,11 +7,6 @@ angular.module('Proficiencies', [])
 
 .controller('proficiencies', [ function() {
     
-    var proficiencyScore = function(level) {
-      return (1 + Math.Ceiling(level / 4.0));
-    };
-    
-    
     var Proficiency = function(title, description, stat) {
       if(!title || !description || !stat){
         return;
@@ -22,12 +17,16 @@ angular.module('Proficiencies', [])
       
     };
     
-    Proficiency.build = function(data) {
-      
-    }
+    Proficiency.prototype.getScore = function(level) {
+      return (1 + Math.Ceiling(level / 4.0));
+    };
+    
+    var proficiencyBuilder = function(data) {
+      return new Proficiency(data.title, data.description, data.stat);
+    };
     
     return {
-      proficiencyScore : proficiencyScore
+      proficiencyScore : proficiencyBuilder
     };
     
     

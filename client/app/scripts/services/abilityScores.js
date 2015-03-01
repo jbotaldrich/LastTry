@@ -1,8 +1,8 @@
 angular.module('AbilityScore', [])
 
-.constant('ABILITIES', Object.freeze(['STRENGTH', 'DEXTERITY', 
-                        'CONSTITUTION', 'WISDOM', 'INTELLIGENCE',
-                        'CHARISMA']))
+.constant('ABILITIES', Object.freeze(['Strength', 'Dexterity', 
+                        'Constitution', 'Wisdom', 'Intelligence',
+                        'Charisma']))
                      
 .constant('ABILITY_TYPE', Object.freeze(['MOD', 'BASE']))
 
@@ -50,39 +50,5 @@ angular.module('AbilityScore', [])
   
   return AbilityScores;
   }
-])
+]);
 
-.factory('StatBlock', ['ABILITY_TYPE', function(ABILITY_TYPE) {
-  var baseStat = {};
-  var statMods = [];
-  
-  var setBaseStat = function(abilityScores) {
-    if(abilityScores.type !== ABILITY_TYPE.BASE) {
-      return;
-    }
-    baseStat = abilityScores;
-  };
-  
-  var setMod = function(abilityScores) {
-    if(abilityScores.type !== ABILITY_TYPE.MOD) {
-      return;
-    }
-    statModes.push(abilityScores);
-  };
-  
-  
-  
-  var getAbilityScore = function(ability) {
-     var score = baseStat[ability];
-     for(var i = 0; i < statMods.length; i++) {
-       if(statMods[i][ability]) {
-         score += statMods[i][ability];
-       }
-     }
-  };
-  
-  var getModifier = function(ability) {
-    return (getAbilityScore(ability) - 10) / 2;
-  };
-  
-}]);

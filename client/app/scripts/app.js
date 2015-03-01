@@ -19,7 +19,10 @@ angular
     'ngSanitize',
     'ngTouch',
     'DiceRoller',
-    'AbilityScore'
+    'Scores',
+    'CharacterSheet',
+    'AbilityRadio',
+    'SummaryView'
   ])
   .config(function ($routeProvider) {
     $routeProvider

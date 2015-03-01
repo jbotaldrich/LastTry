@@ -1,32 +1,26 @@
 
-<div class="form-horizontal">
-  <div ng-repeat="stat in stats">
-    <div class="input-group">  
-      <span class="input-group-addon">{{stat.name}}</span>
-      <input type="number" ng-model="value" class="form-control pull-right">
-    </div>
-  </div>
-</div>
-
 <div class="fluid-container">
-<div ng-repeat="roll in rolls">
-  <div class="col-med-4 col-lg-4">
-    <input type="number" ng-model="roll.value">
-
-    <div ng-repeat="stat in stats">
-      <input type="radio" name="{{stat.name}}"/>{{stat.name}}
+  <div class="col-med-9 col-lg-9">  
+    <div ng-repeat="(rollIndex, roll) in rolls">
+      <div class="col-med-4 col-lg-4">
+        <input type="number" ng-model="roll.value">
+        <div ng-repeat="stat in stats" ability-radio ng-click="setSelected(rollIndex, stat)" roll-group="rollIndex" stat-type="stat.name">
+        </div>
+      </div>
     </div>
 
-  </div>
-</div>
-  
-  <button class="btn btn-primary" ng-click="selectedTypeOfRoll.rollfunc()">Roll Dice!</button>
-  <div class="btn-group">
-  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-    {{selectedTypeOfRoll.title}} <i class="fa fa-caret-down"></i>
-  </button> 
+    <button class="btn btn-primary" ng-click="selectedTypeOfRoll.rollfunc()">Roll Dice!</button>
+    <div class="btn-group">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      {{selectedTypeOfRoll.title}} <i class="fa fa-caret-down"></i>
+    </button> 
       <ul class="dropdown-menu">
         <li ng-repeat="troll in typesOfRolls"><a ng-click="setTypeOfRoll($index)">{{troll.title}}</a></li>
-  </ul>
-</div>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-primary" ng-click="acceptScores()">Accept</button> 
+  </div>
+  <div class="col-med-3 col-lg-3">
+
+  </div>
 </div>
